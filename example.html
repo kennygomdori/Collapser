@@ -2,14 +2,13 @@
   menu {
     width: 100%;
     position: relative;
-    height: 20px;
     background: #CCC;
   }
 </style>
 <menu></menu>
-<link rel="stylesheet" href="player.css">
-<script src="index.js"></script>
-<script>
+<link rel="stylesheet" href="player.css" />
+<script type="module">
+  import {bindMenu} from './menu.js';
   const menu = [
       ["File", [
           [`New`, [
@@ -32,4 +31,4 @@
       ]]
   ];
   bindMenu(menu, document.querySelector('menu'));
-<script>
+</script>
