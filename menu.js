@@ -2,7 +2,7 @@
  * Created by Keun Hoi Kim on 1/18/2018.
  */
 
-import * from './collapser.js'
+import {foldify, sesemify} from '/.collapser.js'
 
 function createElement(tag, inner = "", parent, attributes = {}) {
     const el = document.createElement(tag);
