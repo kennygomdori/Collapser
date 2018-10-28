@@ -1,0 +1,285 @@
+menu a {
+    display: block
+}
+
+menu a:link:hover {
+    text-decoration: none;
+}
+
+nav,
+nav *,
+menu,
+menu * {
+        position: relative;
+    -webkit-user-select: none;
+    /* Chrome/Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+ */
+    user-select: none;
+}
+
+nav ul,
+menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav i,
+menu i {
+    padding-left: 0;
+}
+
+menu * {
+    background: inherit;
+}
+
+
+/* dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown hr {
+    margin: 0;
+}
+
+.dropdown > div, .dropdown > ul {
+    transition: visibility .4s, opacity .4s;
+    transform-origin: 0 0;
+    padding: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: 100;
+    border: 1px solid #ccc;
+    opacity: 0;
+    min-width: 20em;
+}
+
+.dropdown > a > button, .dropside > a > button {
+    transition: all .3s;
+}
+
+.dropdown button > *:last-child {
+    justify-self: flex-end;
+}
+
+.dropdown a:hover button{
+    /*color: #eb4e01;*/
+    /*text-decoration: none;*/
+}
+
+.dropdown:hover > button, .dropdown:focus > button, .dropside:hover > button, .dropside:focus > button,
+.dropdown.dropped > button, .dropside.dropped > button, .dropdown button:hover {
+    background: rgba(0, 0, 0, .05);
+    box-shadow: inset 0 0 .4em .3em #ddd;
+}
+
+.dropdown:hover > div, .dropdown:focus > div, .dropdown:active > div, .dropdown.dropped > div,
+.dropdown:hover > ul, .dropdown:focus > ul, .dropdown:active > ul, .dropdown.dropped > ul {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1000;
+}
+
+/* dropsize */
+.dropside {
+    position: relative;
+}
+
+.dropside > div, .dropside > ul {
+    transition: visibility .4s, opacity .4s;
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: 0 0;
+    position: absolute;
+    z-index: 100;
+    margin-left: 100%;
+    min-height: 100%;
+    border: 1px solid #ccc;
+    /*top: -1px;*/
+    box-sizing: border-box;
+}
+
+.dropside > a > button::after {
+    order: 10;
+    font-family: 'Material Icons';
+    margin-left: 1em;
+    content: "chevron_right";
+    font-weight: bold;
+    /*float: right;*/
+    vertical-align: middle;
+}
+
+.dropside:hover > div, .dropside:focus > div, .dropside:active > div, .dropside.dropped > div,
+.dropside:hover > ul, .dropside:focus > ul, .dropside:active > ul, .dropside.dropped > ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown button, .dropside button {
+    min-width: 100%;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    vertical-align: middle;
+    background-color: transparent;
+    padding: .5em 1em;
+    border: 0 solid rgba(0, 0, 0, 0);
+    white-space: nowrap;
+    text-decoration: none;
+    margin: 0;
+    transition: box-shadow .5s, background-color .7s, text-shadow .5s;
+}
+
+/*.dropdown:hover button, .dropdown:focus button {*/
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+    /*box-shadow: inset 0 0 .4em rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+/*.dropdown:active button {*/
+    /*background-color: rgba(0, 0, 0, 0.3);*/
+    /*box-shadow: inset 0 0 .4em rgba(0, 0, 0, 0.4);*/
+    /*text-shadow: 0 .2em .05em rgba(0, 0, 0, 0.3);*/
+    /*transition: box-shadow 0s, background-color 0s;*/
+/*}*/
+
+
+.side-menu ul {
+    list-style: none;
+    overflow: hidden;
+    padding-left: 0;
+}
+
+.side-menu li {
+    cursor: pointer;
+}
+
+.side-menu > ul {
+    padding: 1em 1em;
+}
+
+.side-menu > ul > li {
+    margin: .3em 0;
+}
+
+.side-menu > ul > li > ul {
+    margin: .2em 0 .2em 1em;
+    transition: margin .3s, border-width .1s;
+    border: #ccc 1px solid;
+    box-shadow: inset 0 0 .4em rgba(0, 0, 0, 0.2);
+}
+
+.side-menu button {
+    border: 0;
+    background: transparent;
+    padding: 0 .1em;
+}
+
+.side-menu .collapsed ~ ul > li {
+    max-height: 0;
+}
+
+.side-menu ul > li > .has-ul:after {
+    position: absolute;
+    font-family: 'Material Icons';
+    transition: .7s;
+    display: inline-block;
+    content: "chevron_right";
+    right: 1em;
+    transform: rotate(90deg);
+}
+
+.side-menu ul > li > .has-ul.collapsed:after {
+    transform: rotate(0);
+}
+
+.side-menu ul > li > .collapsed ~ ul {
+    margin: 0;
+    border-width: 0;
+}
+
+.side-menu > ul > li > ul > li {
+    max-height: 2.4em;
+    transition: max-height .3s, margin .3s;
+}
+
+.side-menu ul input {
+    box-shadow: none;
+    border: none;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    width: 100%;
+    cursor: pointer;
+    overflow: visible;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    display: inline-flex;
+}
+
+.side-menu input:focus {
+    background: rgba(255, 255, 255, .1);
+}
+
+.side-menu li > *:not(ul) {
+    display: block;
+    width: 100%;
+    padding: .7em 1em;
+}
+
+.side-menu li > label {
+    display: block;
+    width: inherit;
+    padding: .7em 1em;
+}
+
+.side-menu li.button > a {
+    padding: .4em 0;
+    background: #ccc;
+    text-align: center;
+    border: none;
+    transition: box-shadow .3s, text-shadow .3s;
+}
+
+.side-menu ul a {
+    border: 1px transparent solid;
+    border-radius: 3px;
+    transition: border-color .3s;
+    line-height: 100%;
+    vertical-align: middle;
+    display: flex;
+}
+
+.side-menu i {
+    padding-left: 0;
+}
+
+.side-menu ul a:hover, .side-menu ul a:active {
+    border-color: rgba(0, 0, 0, .3)
+}
+
+.side-menu ul > li.button > a:hover, .side-menu ul > li.button > a:active {
+    border-color: transparent;
+    box-shadow: inset 0 0 .4em .3em #888;
+    text-shadow: 0 0.2em 0.2em rgba(0, 0, 0, 0.5);
+}
+
+.side-menu ul a:hover > i, .side-menu ul a:active > i {
+    animation: rubberBand .5s;
+    text-decoration: none;
+}
+
+.side-menu ul > li > ul > li > a {
+    padding: .2em .5em .2em 1em;
+}
+
+.side-menu li > a:before {
+    margin: 0 auto;
+}
