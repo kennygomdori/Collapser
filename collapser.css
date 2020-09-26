@@ -106,9 +106,8 @@ menu * {
 
 .dropside > a > button::after {
     order: 10;
-    font-family: 'Material Icons';
     margin-left: 1em;
-    content: "chevron_right";
+    content: "\25B6";
     font-weight: bold;
     /*float: right;*/
     vertical-align: middle;
