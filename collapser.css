@@ -187,10 +187,9 @@ menu * {
 
 .side-menu ul > li > .has-ul:after {
     position: absolute;
-    font-family: 'Material Icons';
     transition: .7s;
     display: inline-block;
-    content: "chevron_right";
+    content: "\25B6";
     right: 1em;
     transform: rotate(90deg);
 }
